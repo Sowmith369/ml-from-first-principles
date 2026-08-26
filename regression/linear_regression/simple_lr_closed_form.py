@@ -4,6 +4,7 @@ class SimpleLinearRegression:
     def __init__(self):
         self.w = None
         self.b = None
+
     def fit(self, X, y):
         # Calculating means
         x_mean = np.mean(X)
