@@ -32,32 +32,32 @@ class LogisticRegressionOVR:
 
         return w, b
 
-def fit(self, X, y):
-    self.classes = np.unique(y)
+    def fit(self, X, y):
+        self.classes = np.unique(y)
 
-    for cls in self.classes:
+        for cls in self.classes:
 
-        # Current class = 1
-        # All other classes = 0
-        y_binary = (y == cls).astype(int)
+            # Current class = 1
+            # All other classes = 0
+            y_binary = (y == cls).astype(int)
 
-        w, b = self.fit_binary(X, y_binary)
+            w, b = self.fit_binary(X, y_binary)
 
-        self.models[cls] = (w, b)
+            self.models[cls] = (w, b)
 
-def predict_probability(self, X):
-    probabilities = []
+    def predict_probability(self, X):
+        probabilities = []
 
-    for cls in self.classes:
-        w, b = self.models[cls]
+        for cls in self.classes:
+            w, b = self.models[cls]
 
-        z = X @ w + b
-        prob = self.sigmoid(z)
-        probabilities.append(prob)
+            z = X @ w + b
+            prob = self.sigmoid(z)
+            probabilities.append(prob)
 
-    return np.array(probabilities).T
+        return np.array(probabilities).T
 
-def predict(self, X):
-    probabilities = self.predict_probability(X)
+    def predict(self, X):
+        probabilities = self.predict_probability(X)
 
-    return self.classes[np.argmax(probabilities, axis=1)]
+        return self.classes[np.argmax(probabilities, axis=1)]

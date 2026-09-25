@@ -1,6 +1,6 @@
 import numpy as np
 
-class LogisticRegression:
+class BinaryLogisticRegression:
     def __init__(self, learning_rate=0.01, epochs=1000):
         self.lr = learning_rate
         self.e = epochs
@@ -11,7 +11,7 @@ class LogisticRegression:
         return (1 / (1 +np.exp(-z)))
 
     def fit(self, X, y):
-        n_samples, n_features = n.shape
+        n_samples, n_features = X.shape
 
         self.w = np.zeros(n_features)
         self.b = 0
@@ -30,6 +30,11 @@ class LogisticRegression:
     def predict_probability(self, X):
         z = X @ self.w + self.b
         return self.sigmoid(z)
+
+    def cross_entoropy_loss(self, X):
+        z = X @ self.w + self.b
+        y_pred = self.sigmoid(z)
+        return 1/2 * np.mean(y_pred*np.log(y_pred) + (1-y_pred) * np.log(y_pred))
 
     def predict(self, X):
         probability = self.predict_probability(X)
