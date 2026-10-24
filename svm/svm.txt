@@ -1,0 +1,26 @@
+This is the way that I'm implementing SVM and its various forms
+                              SVM
+                               │
+                 ┌─────────────┴─────────────┐
+                 │                           │
+            Hard Margin                 Soft Margin
+                 │                           │
+           ┌─────┴─────┐             ┌───────┼────────┐
+           │           │             │       │        │
+          PGD        Dual QP         SGD   Dual QP   SMO
+                                             │        │
+                                             └───┬────┘
+                                                 │
+                                             Kernel SVM
+                                                 │
+                                      ┌──────────┼──────────┐
+                                      │          │          │
+                                    Linear     Poly        RBF
+                                                 │
+                                                 │
+                                           Multiclass SVM
+                                                 │
+                                      ┌──────────┴──────────┐
+                                      │                     │
+                                     OvR                   OvO
+                                 One-vs-Rest            One-vs-One
