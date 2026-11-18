@@ -1,0 +1,21 @@
+                    Decision Tree
+                         │
+             ┌───────────┴───────────┐
+             │                       │
+        Classification          Regression
+             │                       │
+      ┌──────┴──────┐          ┌─────┴─────┐
+      │             │          │           │
+   Entropy         Gini     MSE/Variance
+      │             │          │           │
+ Information Gain  Gini      Variance      ...
+      │             │
+      └──────┬──────┘
+             │
+       Find Best Split
+             │
+       Recursively Split
+             │
+       Stopping Criteria
+             │
+          Pruning
